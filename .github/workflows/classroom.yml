@@ -34,20 +34,20 @@ jobs:
     # Note: will run even if autograding failed
     # thanks to `if: success() || failure()`.
     #
-    - run: git checkout badges || git checkout -b badges
-      if: success() || failure()
-    - name: points bar
-      uses: markpatterson27/points-bar@v1
-      with:
-        points: ${{ steps.autograder.outputs.points }}
-        path: '.github/badges/points-bar.svg'
-        label: 'Баллы'
-      if: success() || failure()
-    - name: Commit changes to points bar
-      run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        git add '.github/badges/points-bar.svg'
+    #- run: git checkout badges || git checkout -b badges
+    #  if: success() || failure()
+    #- name: points bar
+    #  uses: markpatterson27/points-bar@v1
+    #  with:
+    #    points: ${{ steps.autograder.outputs.points }}
+    #    path: '.github/badges/points-bar.svg'
+    #    label: 'Баллы'
+    #  if: success() || failure()
+    #- name: Commit changes to points bar
+    #  run: |
+    #    git config --local user.email "action@github.com"
+    #    git config --local user.name "GitHub Action"
+    #    git add '.github/badges/points-bar.svg'
         git commit -m "Add/Update points bar" || exit 0
         git push origin badges
       if: success() || failure()
