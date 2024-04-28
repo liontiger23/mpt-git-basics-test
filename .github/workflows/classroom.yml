@@ -51,10 +51,4 @@ jobs:
     #    git commit -m "Add/Update points bar" || exit 0
     #    git push origin badges
     #  if: success() || failure()
-    
-    - name: Autograding Reporter
-      uses: education/autograding-grading-reporter@v1
-      env:
-        AUTOGRADING_RESULTS: "${{steps.autograder.outputs.points}}"
-      with:
-        runners: autograding
+
